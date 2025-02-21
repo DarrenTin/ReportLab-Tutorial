@@ -43,6 +43,7 @@ c.showPage()
 c.save()
 ```
 ![alt text](image4.png)
+
 other fonts:
 - Helvetica (default)
 - Courier
