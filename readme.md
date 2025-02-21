@@ -31,4 +31,22 @@ c.save()
 ```
 ![alt text](image3.png)
 
-## 3. 
+## 3. Set font type
+```python
+from reportlab.pdfgen import canvas
+c = canvas.Canvas("output-001.pdf")
+c.setFont("Times-Roman", 12)
+c.drawString(100, 750, "Hello pdf!")
+c.drawString(200, 750, "Right!")
+c.drawString(100, 650, "Down!")
+c.showPage()
+c.save()
+```
+![alt text](image4.png)
+other fonts:
+- Helvetica (default)
+- Courier
+- Symbol
+- ZapfDingbats
+
+## 4. Draw shapes
