@@ -1,8 +1,10 @@
 from reportlab.pdfgen import canvas
+from reportlab.lib.colors import red
+
 c = canvas.Canvas("output-001.pdf")
-c.setFont("ZapfDingbats", 12)
-c.drawString(100, 750, "Hello pdf!")
-c.drawString(200, 750, "Right!")
-c.drawString(100, 650, "Down!")
+
+c.setFillColor(red)
+c.rect(100, 700, 100, 100, fill=1, stroke=1)
+
 c.showPage()
 c.save()
