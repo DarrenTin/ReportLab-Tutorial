@@ -3,8 +3,8 @@ from reportlab.lib.colors import red
 
 c = canvas.Canvas("output-001.pdf")
 
-c.setFillColor(red)
-c.rect(100, 700, 100, 100, fill=1, stroke=1)
+# c.line(x-start, y-start, x-end, y-end)
+c.line(100, 800, 300, 500)
 
 c.showPage()
 c.save()

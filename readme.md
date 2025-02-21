@@ -1,5 +1,6 @@
 # Guide on reportlab
 ## 1. write a simple pdf and output
+default canva size is 595 × 842
 ```python
 from reportlab.pdfgen import canvas
 c = canvas.Canvas("output-001.pdf")
@@ -155,3 +156,53 @@ c.save()
 ```
 
 ![alt text](image8.png)
+
+### c. line
+a. horizontal line
+```python
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import red
+
+c = canvas.Canvas("output-001.pdf")
+
+# c.line(x-start, y-start, x-end, y-end)
+c.line(0, 700, 595, 700)
+
+c.showPage()
+c.save()
+```
+
+![alt text](image9.png)
+
+b. vertical line
+```python
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import red
+
+c = canvas.Canvas("output-001.pdf")
+
+# c.line(x-start, y-start, x-end, y-end)
+c.line(240, 842, 240, 0)
+
+c.showPage()
+c.save()
+```
+
+![alt text](image10.png)
+
+c. gradient line
+
+```python
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import red
+
+c = canvas.Canvas("output-001.pdf")
+
+# c.line(x-start, y-start, x-end, y-end)
+c.line(100, 800, 300, 500)
+
+c.showPage()
+c.save()
+```
+
+![alt text](image11.png)
