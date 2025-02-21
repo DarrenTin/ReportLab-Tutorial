@@ -32,7 +32,7 @@ c.save()
 ```
 ![alt text](image3.png)
 
-## 3. Set font type
+## 3. set font type
 ```python
 from reportlab.pdfgen import canvas
 c = canvas.Canvas("output-001.pdf")
@@ -51,7 +51,7 @@ other fonts:
 - Symbol
 - ZapfDingbats
 
-## 4. Clone an invoice (Low Fidelity)
+## 4. clone an invoice (Low Fidelity)
 sample invoice
 
 ![alt text](image5.png)
@@ -125,7 +125,7 @@ c.save()
 ```
 ![alt text](image6.png)
 
-## 5. Draw shapes
+## 5. draw shapes
 ### a. rectangle
 ```python
 from reportlab.pdfgen import canvas
@@ -161,7 +161,6 @@ c.save()
 a. horizontal line
 ```python
 from reportlab.pdfgen import canvas
-from reportlab.lib.colors import red
 
 c = canvas.Canvas("output-001.pdf")
 
@@ -177,7 +176,6 @@ c.save()
 b. vertical line
 ```python
 from reportlab.pdfgen import canvas
-from reportlab.lib.colors import red
 
 c = canvas.Canvas("output-001.pdf")
 
@@ -194,7 +192,6 @@ c. gradient line
 
 ```python
 from reportlab.pdfgen import canvas
-from reportlab.lib.colors import red
 
 c = canvas.Canvas("output-001.pdf")
 
@@ -206,3 +203,74 @@ c.save()
 ```
 
 ![alt text](image11.png)
+
+### d. circle
+```python
+from reportlab.pdfgen import canvas
+
+c = canvas.Canvas("output-001.pdf")
+
+# c.circle(x, y, radius)
+c.circle(200, 700, 100)
+
+c.showPage()
+c.save()
+```
+
+![alt text](image12.png)
+
+## 6. insert image
+```python
+from reportlab.pdfgen import canvas
+
+c = canvas.Canvas("output-001.pdf")
+
+# c.drawImage("image_path", x, y, width, height)
+c.drawImage("belugacat.webp", 100, 550, 300, 200)
+
+c.showPage()
+c.save()
+```
+
+![alt text](image13.png)
+
+## 7. create table
+### a. basic
+```python
+from reportlab.pdfgen import canvas
+from reportlab.platypus import Table, TableStyle
+
+c = canvas.Canvas("output-001.pdf")
+
+data = [["Header1", "Header2"], ["Item1", "Item2"]]
+table = Table(data)
+table_width, table_height = table.wrap(0, 0)  # initialize table
+table.drawOn(c, 100, 700)  # table at position (100, 700)
+
+c.showPage()
+c.save()
+```
+
+![alt text](image14.png)
+
+### b. grid line
+```python
+from reportlab.pdfgen import canvas
+from reportlab.platypus import Table, TableStyle
+from reportlab.lib import colors
+
+c = canvas.Canvas("output-001.pdf")
+
+data = [["Header1", "Header2"], ["Item1", "Item2"]]
+table = Table(data)
+table.setStyle(TableStyle([
+    ('GRID', (0, 0), (-1, -1), 1, colors.black)
+]))
+table_width, table_height = table.wrap(0, 0)  # initialize table
+table.drawOn(c, 100, 700)  # table at position (100, 700)
+
+c.showPage()
+c.save()
+``` 
+
+![alt text](image15.png)
